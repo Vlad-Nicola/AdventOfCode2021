@@ -9,7 +9,7 @@ int main()
     int aim = 0;
     unsigned int distance = 0, realDepth = 0;
     for (std::string dir; file >> dir;) {
-        unsigned int amount;
+        int amount;
         file >> amount;
         if (!dir.compare("forward")) {
             distance += amount;
