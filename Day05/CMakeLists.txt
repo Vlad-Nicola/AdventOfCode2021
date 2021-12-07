@@ -4,6 +4,6 @@ set(current_day Day05)
 add_executable (${current_day} "${current_day}")
 
 add_custom_command(
-            TARGET ${current_day} POST_BUILD
+            TARGET ${current_day} PRE_BUILD
             COMMAND ${CMAKE_COMMAND} -E copy "${CMAKE_CURRENT_SOURCE_DIR}/input.txt" "${CMAKE_CURRENT_BINARY_DIR}/input.txt"
         )
