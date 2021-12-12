@@ -3,7 +3,7 @@
 set (CMAKE_CXX_STANDARD 20)
 
 set(current_day Day11)
-add_executable (${current_day} "${current_day}")
+add_executable (${current_day} "${current_day}.cpp")
 
 add_custom_command(
             TARGET ${current_day} PRE_BUILD

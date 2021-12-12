@@ -1,7 +1,7 @@
 ﻿cmake_minimum_required (VERSION 3.8)
 
 set(current_day Day02)
-add_executable (${current_day} "${current_day}")
+add_executable (${current_day} "${current_day}.cpp")
 
 add_custom_command(
             TARGET ${current_day} PRE_BUILD

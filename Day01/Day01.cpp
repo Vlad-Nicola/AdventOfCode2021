@@ -31,9 +31,9 @@ unsigned int doMeasurement(const unsigned int slidingWindow)
 
 int main()
 {
-    std::cout << "(Part 1) Increased count: " << doMeasurement(1) << std::endl;
-    std::cout << "(Part 2) Increased count: " << doMeasurement(3);
+    auto measurements = std::make_pair(doMeasurement(1), doMeasurement(3));
+    std::cout << "(Part 1) Increased count: " << measurements.first << std::endl;
+    std::cout << "(Part 2) Increased count: " << measurements.second;
 
-    std::cin.get();
-    return 0;
+    return measurements.first == 1715 && measurements.second == 1739 ? 0 : -1;
 }
