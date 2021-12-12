@@ -49,6 +49,5 @@ int main()
     std::cout << "(Part 1) Visited paths count: " << res.first << std::endl;
     std::cout << "(Part 2) Visited paths count (one double allowed): " << res.second << std::endl;
     
-    std::cin.get();
-    return 0;
+    return res.first == 3679 && res.second == 107395 ? 0 : -1;
 }

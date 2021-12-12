@@ -49,9 +49,9 @@ int main()
         }
     }
 
-    std::cout << "(Part 1) Fuel consumption: " << currentNumber.to_ulong() * (~currentNumber).to_ulong() << std::endl;
-    std::cout << "(Part 2) CO2 scrubber rating: " << nr_o2 * nr_co2;
+    unsigned long fuel = currentNumber.to_ulong() * (~currentNumber).to_ulong(), scrubber = nr_o2 * nr_co2;
+    std::cout << "(Part 1) Fuel consumption: " << fuel << std::endl;
+    std::cout << "(Part 2) CO2 scrubber rating: " << scrubber;
 
-    std::cin.get();
-    return 0;
+    return fuel == 3309596 && scrubber == 2981085 ? 0 : -1;
 }

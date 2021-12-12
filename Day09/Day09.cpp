@@ -76,6 +76,5 @@ int main()
     std::cout << "(Part 1) Risk level: " << riskLevel << std::endl;
     std::cout << "(Part 2) Largest basins: " << largestBasins[0] * largestBasins[1] * largestBasins[2];
         
-    std::cin.get();
-    return 0;
+    return riskLevel == 502 && largestBasins[0] * largestBasins[1] * largestBasins[2] == 1330560 ? 0 : -1;
 }

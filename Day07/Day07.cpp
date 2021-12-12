@@ -31,6 +31,5 @@ int main()
     std::cout << "(Part 1) Min direct fuel consumption: " << minDirectFuel << std::endl;
     std::cout << "(Part 2) Min accelerated fuel consumption: " << minAccelFuel;
 
-    std::cin.get();
-    return 0;
+    return minDirectFuel == 344138 && minAccelFuel == 94862124 ? 0 : -1;
 }

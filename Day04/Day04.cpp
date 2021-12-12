@@ -103,6 +103,5 @@ int main()
     std::cout << "(Part 1) First Winner score: " << res.first << std::endl;
     std::cout << "(Part 1) Last Winner score: " << res.second;
 
-    std::cin.get();
-    return 0;
+    return res.first == 39984 && res.second == 8468 ? 0 : -1;
 }

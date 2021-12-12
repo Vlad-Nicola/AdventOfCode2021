@@ -35,6 +35,5 @@ int main()
     std::cout << "(Part 1) Overlapping lines points: " << totalResult_p1 << std::endl;
     std::cout << "(Part 2) Overlapping lines points: " << totalResult_p2;
 
-    std::cin.get();
-    return 0;
+    return totalResult_p1 == 6666 && totalResult_p2 == 19081 ? 0 : -1;
 }

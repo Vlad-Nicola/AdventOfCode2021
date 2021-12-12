@@ -66,6 +66,5 @@ int main()
     std::cout << "(Part 1) Total flashes: " << totalFlashes << std::endl;
     std::cout << "(Part 2) Step where all flash: " << magicStep;
 
-    std::cin.get();
-    return 0;
+    return totalFlashes == 1725 && magicStep == 308 ? 0 : -1;
 }

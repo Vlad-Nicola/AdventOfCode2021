@@ -59,6 +59,5 @@ int main()
     std::cout << "(Part 1) Total score for syntax errors: " << syntaxScore << std::endl;
     std::cout << "(Part 2) Total score for autocomplete: " << autocompleted[autocompleted.size() / 2];
 
-    std::cin.get();
-    return 0;
+    return syntaxScore == 339411 && autocompleted[autocompleted.size() / 2] == 2289754624 ? 0 : -1;
 }

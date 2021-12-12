@@ -34,6 +34,5 @@ int main()
     std::cout << "(Part 1) Fish after 80 days: " << offspringAfter80 << std::endl;
     std::cout << "(Part 2) Fish after 256 days: " << offspringAfter256;
 
-    std::cin.get();
-    return 0;
+    return offspringAfter80 == 379114 && offspringAfter256 == 1702631502303 ? 0 : -1;
 }

@@ -22,6 +22,5 @@ int main()
     std::cout << "(Part 1) Direction: " << distance * aim << std::endl;
     std::cout << "(Part 2) Real Direction: " << distance * realDepth;
 
-    std::cin.get();
-    return 0;
+    return distance * aim == 1648020 && distance * realDepth == 1759818555 ? 0 : -1;
 }
