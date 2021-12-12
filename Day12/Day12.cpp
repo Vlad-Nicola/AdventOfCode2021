@@ -13,14 +13,12 @@ std::pair<unsigned, unsigned> getPaths(
         return { 1,1 };
     }
 
-    bool doublePath = false;
     if (elem[0] > 'Z') {
         if (std::find(visited.cbegin(), visited.cend(), elem) != visited.cend()) {
             if (!allowSmallTwice || elem == "start") {
                 return { 0,0 };
             }
             allowSmallTwice = false;
-            doublePath = true;
         } else {
             visited.push_back(elem);
         }
@@ -30,7 +28,7 @@ std::pair<unsigned, unsigned> getPaths(
     for (const auto& neigh : map.at(elem)) {
         const auto res = getPaths(neigh, map, visited, allowSmallTwice);
         paths.second += res.second;
-        if (!doublePath) {
+        if (allowSmallTwice) {
             paths.first += res.first;
         }
     }
