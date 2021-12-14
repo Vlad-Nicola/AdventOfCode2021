@@ -27,6 +27,11 @@ int main()
             break;
         }
     }
+    
+    //HACK BECAUSE FOLD y=447 IS THE ONLY ONE NOT FALLING IN THE MIDDLE OF THE PAPER
+    paper.insert(paper.cend(), 2, std::vector<bool>(paper.front().size(), false));
+    sizeX += 2;
+    
     unsigned int firstCount = 0;
     for (std::string line; std::getline(file, line, '='); ) {
         uint64_t val;
