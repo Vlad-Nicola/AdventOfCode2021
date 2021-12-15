@@ -1,7 +1,7 @@
 ﻿#include <iostream>
 #include <fstream>
 #include <vector>
-#include <algorithm>
+#include <queue>
 
 struct Node
 {
@@ -10,6 +10,14 @@ struct Node
     Node* prev = nullptr;
     unsigned int cost = 0;
     std::pair<size_t, size_t> pos;
+};
+
+struct Cmp
+{
+    bool operator()(const Node* left, const Node* right) const
+    {
+        return right->cost < left->cost;
+    }
 };
 
 bool doCheck(Node*& current, Node*& next)
@@ -26,43 +34,39 @@ bool doCheck(Node*& current, Node*& next)
     return false;
 }
 
-unsigned int getShortest(std::vector<std::vector<Node>>& table)
+void getShortest(std::vector<std::vector<Node>>& table)
 {
-    std::vector<Node*> queue;
-    queue.push_back(&table[0][0]);
+    std::priority_queue<Node*, std::vector<Node*>, Cmp> queue(Cmp{});
+    queue.push(&table[0][0]);
     while (queue.size()) {
-        Node* current = queue.front();
-        queue.erase(queue.begin());
+        Node* current = queue.top();
+        queue.pop();
 
         if (current->pos.first != 0) {
             Node* next = &table[current->pos.first - 1][current->pos.second];
             if (doCheck(current, next)) {
-                queue.push_back(next);
+                queue.push(next);
             }
         }
         if (current->pos.first != table.size() - 1) {
             Node* next = &table[current->pos.first + 1][current->pos.second];
             if (doCheck(current, next)) {
-                queue.push_back(next);
+                queue.push(next);
             }
         }
         if (current->pos.second != 0) {
             Node* next = &table[current->pos.first][current->pos.second - 1];
             if (doCheck(current, next)) {
-                queue.push_back(next);
+                queue.push(next);
             }
         }
         if (current->pos.second != table.back().size() - 1) {
             Node* next = &table[current->pos.first][current->pos.second + 1];
             if (doCheck(current, next)) {
-                queue.push_back(next);
+                queue.push(next);
             }
         }
-
-        std::nth_element(queue.begin(), queue.begin(), queue.end(), [](const auto& left, const auto& right) {return left->cost < right->cost; });
     }
-
-    return table.back().back().cost - table[0][0].cost;
 }
 
 int main()
@@ -96,8 +100,9 @@ int main()
     table[0][0].prev = &ancestor;
     bigTable[0][0].prev = &ancestor;
 
-    const unsigned int shortest_first = getShortest(table);
-    const unsigned int shortest_second = getShortest(bigTable);
+    getShortest(bigTable);
+    const unsigned int shortest_first = bigTable[table.size() - 1][table.front().size() - 1].cost - bigTable[0][0].cost;
+    const unsigned int shortest_second = bigTable.back().back().cost - bigTable[0][0].cost;
     
     std::cout << "(Part 1) Shortest path (small): " << shortest_first << std::endl;
     std::cout << "(Part 2) Shortest path (large): " << shortest_second;
