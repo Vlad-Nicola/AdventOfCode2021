@@ -2,6 +2,7 @@
 #include <fstream>
 #include <vector>
 #include <string>
+#include <cstring>
 
 constexpr unsigned steps = 40, m = 26, im = m * steps, IM = im * m, steps_p1 = 10;
 
