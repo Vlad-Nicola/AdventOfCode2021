@@ -52,7 +52,7 @@ struct Segment
     std::pair<unsigned, unsigned> getOutputs() const {
         std::pair<unsigned, unsigned> rv = { 0, 0 };
         for (size_t i = hints.size() - 4; i < hints.size(); ++i) {
-            const unsigned int pos = std::pow(10, hints.size() - i - 1);
+            const unsigned int pos = (unsigned)std::pow(10, hints.size() - i - 1);
             const size_t sz = hints[i].size();
             switch (sz) {
             case 2:
