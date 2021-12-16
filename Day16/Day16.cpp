@@ -2,8 +2,10 @@
 #include <fstream>
 #include <sstream>
 #include <vector>
+#include <memory>
+#include <cstring>
 
-constexpr std::string hex2str(const unsigned char c) 
+std::string hex2str(const unsigned char c) 
 {
     switch (c) {
     case '0': return "0000";

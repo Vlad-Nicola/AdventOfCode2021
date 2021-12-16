@@ -46,6 +46,7 @@ struct Segment
                 rv.first = 'a' + i;
             }
         }
+        return rv;
     }
 
     std::pair<unsigned, unsigned> getOutputs() const {
