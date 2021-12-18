@@ -8,7 +8,7 @@ set (CMAKE_CXX_STANDARD 20)
 
 project ("AdventOfCode2021")
 
-foreach(day RANGE 1 17)
+foreach(day RANGE 1 18)
     if(day LESS 10)
         set(pre "0")
     else()
